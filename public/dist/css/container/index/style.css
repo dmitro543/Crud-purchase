@@ -1,0 +1,60 @@
+body {
+  font-family: sans-serif;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  gap: 36px;
+  max-width: 900px;
+  font-family: sans-serif;
+}
+
+.form-title {
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.page-content {
+  display: grid;
+  gap: 24px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 14px;
+}
+
+.content-input {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.content-button {
+  color: #FFF;
+  padding: 8px;
+  justify-content: center;
+  border-radius: 5px;
+  background: #0D6EFD;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.user-list li {
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/*# sourceMappingURL=style.css.map */
