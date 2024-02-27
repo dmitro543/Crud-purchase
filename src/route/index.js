@@ -58,7 +58,7 @@ class User {
 router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
-  const List = User.getlist()
+  const list = User.getlist()
 
   // ↙️ cюди вводимо назву файлу з сontainer
   res.render('index', {
@@ -67,8 +67,8 @@ router.get('/', function (req, res) {
 
     data: {
       users: {
-        List,
-        isEmpty: List.length === 0
+        list,
+        isEmpty: list.length === 0
       },
     }
   })
