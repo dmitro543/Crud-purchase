@@ -233,6 +233,32 @@ router.get('/purchase-index', function (req, res) {
   })
 })
 
+router.get('/purchase-create', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  // ↙️ cюди вводимо назву файлу з сontainer
+  res.render('purchase-create', {
+    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+    style: 'purchase-create',
+    data: {
+       list: Product.getlist(),
+    }
+  })
+})
+
+router.get('/purchase-info', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  // ↙️ cюди вводимо назву файлу з сontainer
+  res.render('purchase-info', {
+    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+    style: 'purchase-info',
+    data: {
+       list: Product.getlist(),
+    }
+  })
+})
+
 router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
@@ -292,11 +318,10 @@ router.post('/purchase-create', function (req, res) {
         link: `/purchase-product?id=${id}`,
       }
     })
-  }
+   }
+  const product = Product.getById();
 
-  const Product = Product.getById();
-
-  if (Product.amount < 1) {
+  if (product.amount < 1) {
     return res.render('alert', {
       style: 'alert',
       data: {
@@ -305,15 +330,13 @@ router.post('/purchase-create', function (req, res) {
         link: `/purchase-product?id=${id}`,
       }
      })
-    }
-  })
+   }
 
   console.log(product, amount)
 
   const productPrice = product.price * amount
   const totalPrice = productPrice + Purchase.DELIVERY_PRICE
   const bonus = Purchase.calcBonusAmount(totalPrice)
-
   res.render('purchase-create', {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'purchase-create',
@@ -347,7 +370,7 @@ router.post('/purchase-create', function (req, res) {
     }
   })
   // ↑↑ сюди вводимо JSON дані
-
+})
   router.post('/purchase-submit', function (req, res) {
     const id = Number(req.query.id)
     let {
