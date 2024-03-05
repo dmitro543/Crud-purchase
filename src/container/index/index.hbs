@@ -2,73 +2,96 @@
 Це код container файлу для index сторінки, 
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
  }}
-
- <main class="main">
-    <section>
-     <div class="form">
-       <h1 class="form-title">Створити заголовок</h1>
-       <form method="POST" action="/user-create">
-        <div class="page-content">
-         <div class="content">
-           <label for="email" class="form-label">Email адреса:</label>
-           <input type="email" name="email" class="content-input">
-         </div>
-         <div class="content">
-           <label for="login" class="form-label">Нікнейм:</label>
-           <input type="text" name="login" class="content-input">
-         </div>
-         <div class="content">
-           <label for="password" class="form-label">Пароль</label>
-           <input type="password" name="password" class="content-input">
-         </div>
-         <button class="content-button">Створити</button>
+ 
+<main>
+    <div class="product">
+        <h6 class="message">{{data.message}}</h6>
+        <div class="cool">
+            <div class="hero-1">{{data.info}}</div>
+            <a href="{{data.link}}" class="hero-button">Повернутись назад</a>
         </div>
-       </form>
-     </div>
-    </section>
- </main>
-
-<section>
-  <main class="form">
-    <h1 class="form-title">Список користувачів</h1>
-    <div class="user-list">
-      {{#with data.users}}
-         {{#if isEmpty}}
-            <mark>Пустий</mark>
-           {{else}}
-            <ul>
-              {{#each list}}
-                <li>{{email}} | {{login}} | {{id}}<a href="/user-delete?id={{id}}">Видалити</a></li>
-              {{/each}}
-            </ul>
-         {{/if}}
-      {{/with}}
     </div>
-  </main>
- </section>
- <section >
-     <div class="form">
-       <h1 class="form-title">Оновити пошту користувача</h1>
-       <form method="POST" action="/user-create">
-        <div class="page-content">
-          <div class="content">
-           <label for="id" class="form-label">ID:</label>
-           <input type="id" name="id" class="content-input">
-         </div>
-         <div class="content">
-           <label for="email" class="form-label">Нова email адреса:</label>
-           <input type="email" name="email" class="content-input">
-         </div>
-         <div class="content">
-           <label for="password" class="form-label">Пароль</label>
-           <input type="password" name="password" class="content-input">
-         </div>
-         <button class="content-button">Оновити</button>
+    <div class="product-2">
+        <h2 class="title">Товари</h2>
+        <p class="user">Комп'ютери та ноутбуки/Комп'ютери, неттопи, моноблоки</p>
+    </div>
+    <section class="section">
+        <div class="hero">
+            <img src="{{data.img}}" alt="" class="picture">
+            <div class="map">
+                <div class="picture-title">{{data.title}}</div>
+                <div class="picture-description">{{data.description}}</div>
+                <div class="buttons">
+                    <a href="" class="picture-button">{{data.category}}</a>
+                    <a href="" class="picture-button-2">Топ продажів</a>
+                    <a href="/purchase-product?id={{id}}" class="picture-button-3">Купити зараз: {{data.price}}</a>
+                </div>
+            </div>
         </div>
-       </form>
-     </div>
+        <div class="hero">
+            <img src="{{data.img}}" alt="" class="picture">
+            <div class="map">
+                <div class="picture-title">Комп'ютер COBRA Advanced (I11F.8.H1S2.15T.13356) Intel</div>
+                <div class="picture-description">Intel Core i3-10100F (3.6 - 4.3 ГГц) / RAM 8 ГБ / HDD 1 ТБ + SSD 240 ГБ / GeForce GTX 1050 Ti, 4 ГБ / без ОД / LAN / Linux</div>
+                <div class="buttons">
+                    <a href="" class="picture-button">Готовий до відправки</a>
+                    <a href="" class="picture-button-2">Топ продажів</a>
+                    <a href="/purchase-product?id={{id}}" class="picture-button-3">Купити зараз: 17 000₴</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero">
+            <img src="{{data.img}}" alt="" class="picture">
+            <div class="map">
+                <div class="picture-title">Комп'ютер ARTLINE Gaming by ASUS TUF v119 (TUFv119)</div>
+                <div class="picture-description-3">Intel Core i9-13900KF (3.0 - 5.8 ГГц) / RAM 64 ГБ / SSD 2 ТБ (2 x 1 ТБ) / nVidia GeForce RTX 4070 Ti, 12 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / без ОС</div>
+                <div class="buttons">
+                    <a href="" class="picture-button">Готовий до відправки</a>
+                    <a href="" class="picture-button-2">Топ продажів</a>
+                    <a href="/purchase-product?id={{id}}" class="picture-button-3">Купити зараз: 113 109₴</a>
+                </div>
+            </div>
+        </div>
     </section>
-
+    <section class="section">
+        <div class="hero">
+            <img src="{{data.img}}" alt="" class="picture">
+            <div class="map">
+                <div class="picture-title">{{data.title}}</div>
+                <div class="picture-description">{{data.description}}</div>
+                <div class="buttons">
+                    <a href="" class="picture-button">{{data.category}}</a>
+                    <a href="" class="picture-button-2">Топ продажів</a>
+                    <a href="/purchase-product?id={{id}}" class="picture-button-3">Купити зараз: {{data.price}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero">
+            <img src="{{data.img}}" alt="" class="picture">
+            <div class="map">
+                <div class="picture-title">Комп'ютер COBRA Advanced (I11F.8.H1S2.15T.13356) Intel</div>
+                <div class="picture-description">Intel Core i3-10100F (3.6 - 4.3 ГГц) / RAM 8 ГБ / HDD 1 ТБ + SSD 240 ГБ / GeForce GTX 1050 Ti, 4 ГБ / без ОД / LAN / Linux</div>
+                <div class="buttons">
+                    <a href="" class="picture-button">Готовий до відправки</a>
+                    <a href="" class="picture-button-2">Топ продажів</a>
+                    <a href="/purchase-product?id={{id}}" class="picture-button-3">Купити зараз: 17 000₴</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero">
+            <img src="{{data.img}}" alt="" class="picture">
+            <div class="map">
+                <div class="picture-title">Комп'ютер ARTLINE Gaming by ASUS TUF v119 (TUFv119)</div>
+                <div class="picture-description-3">Intel Core i9-13900KF (3.0 - 5.8 ГГц) / RAM 64 ГБ / SSD 2 ТБ (2 x 1 ТБ) / nVidia GeForce RTX 4070 Ti, 12 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / без ОС</div>
+                <div class="buttons">
+                    <a href="" class="picture-button">Готовий до відправки</a>
+                    <a href="" class="picture-button-2">Топ продажів</a>
+                    <a href="/purchase-product?id={{id}}" class="picture-button-3">Купити зараз: 113 109₴</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 {{! 
     Цей код містить лише те, що буде виводитись в <body>
     Адже наш layout/default.hbs має вже структуру HTML
