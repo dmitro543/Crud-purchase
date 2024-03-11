@@ -380,11 +380,20 @@ a {
     max-width: 900px;
     padding: 16px;
     gap: 24px;
+    margin-left: 20px;
 }
 
 .avenger-title {
     font-size: 30px;
     color: rgba(0, 80, 255, 1);
+    background: none;
+}
+
+.tab {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
 }
 
 .avenger-box {

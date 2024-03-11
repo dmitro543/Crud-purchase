@@ -1,0 +1,24 @@
+<section class="avenger">
+    <mark class="avenger-title">Мої замовлення</mark>
+    {{#with data.purchases}}
+      {{#each list}}
+        <a href="/purchase-info?id={{id}}">
+            <div class="tab">
+                <span class="avenger-name">{{id}}</span>
+                <div class="name">
+                    <span class="avenger-name">Товари</span>
+                    <span class="avenger-name-2">{{product}}</span>
+                </div>
+                <div class="name">
+                    <span class="avenger-name">Сума замовлення</span>
+                    <span class="avenger-name-2">{{totalPrice}}</span>
+                </div>
+                <div class="name">
+                    <span class="avenger-name">Нараховані бонуси</span>
+                    <span class="avenger-name-2">{{bonus}}</span>
+                </div>
+            </div>
+        </a>
+      {{/each}}
+    {{/with}}
+</section>

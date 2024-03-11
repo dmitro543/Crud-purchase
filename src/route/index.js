@@ -90,7 +90,7 @@ Product.add (
 Product.add (
   'https://www.figma.com/file/DNf0rpUeFTlZdQvD82DLnK/image/de873f8a57a84cf9127c35b92f7774715ae2ebb4',
   "Комп'ютер COBRA Advanced (I11F.8.H1S2.15T.13356) Intel",
-  'Intel Core i3-10100F (3.6 - 4.3 ГГц) / RAM 8 ГБ / HDD 1 ТБ + SSD 240 ГБ / GeForce GTX 1050 Ti, 4 ГБ / без ОД / LAN / Linux',
+  'Intel Core i9-13900KF (3.0 - 5.8 ГГц) / RAM 64 ГБ / SSD 2 ТБ (2 x 1 ТБ) / nVidia GeForce RTX 4070 Ti, 12 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / без ОС',
   [{ id: 1, text: 'Готовий до відправки'}],
   113109,
   10,
@@ -220,38 +220,47 @@ Promocode.add('SALE25', 0.75)
 // router.get Створює нам один
 // ↙️ тут вводимо шлях (PATH) до сторінки
 
-router.get('/purchase-index', function (req, res) {
-  // res.render генерує нам HTML сторінку
+router.get('/purchase-list', function (req, res) {
+  const list = Purchase.getlist()
+  console.log('purchase-list:', list)
 
-  // ↙️ cюди вводимо назву файлу з сontainer
-  res.render('purchase-index', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
-    style: 'purchase-index',
+  res.render('purchase-list', {
+    style: 'purchase-list',
     data: {
-       list: Product.getlist(),
-    }
+      purchases: {
+        list,
+      },
+    },
   })
 })
 
 router.get('/purchase-create', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  // ↙️ cюди вводимо назву файлу з сontainer
   res.render('purchase-create', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'purchase-create',
     data: {
        list: Product.getlist(),
+       link: '/purchase-list',
     }
   })
 })
 
-router.get('/purchase-info', function (req, res) {
-  // res.render генерує нам HTML сторінку
+router.post('/purchase-create', function (req, res) {
+  const { name, price, description, email, phone} = req.body
 
-  // ↙️ cюди вводимо назву файлу з сontainer
+  const purchase = new Purchase(name, price, description, email, phone)
+
+  Purchase.add(purchase)
+
+  console.log(Purchase.getlist())
+
+  res.render('purchase-alert', {
+    style: 'purchase-alert',
+  })
+  //                  ↑↑ сюди вводимо JSON дані
+})
+
+router.get('/purchase-info', function (req, res) {
   res.render('purchase-info', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'purchase-info',
     data: {
        list: Product.getlist(),
@@ -305,6 +314,17 @@ router.get('/purchase-product', function (req, res) {
   // ↑↑ сюди вводимо JSON дані
 })
 
+router.get('/test-path', function (req, res) {
+  res.render('alert', {
+      style: 'alert',
+      data: {
+        message: 'Успішно',
+        info: 'Замовлення створено',
+        link: `/test-path`
+      },
+    })
+})
+
 router.post('/purchase-create', function (req, res) {
   const id = Number(req.query.id)
   const amount = Number(req.query.amount)
@@ -319,7 +339,7 @@ router.post('/purchase-create', function (req, res) {
       }
     })
    }
-  const product = Product.getById();
+  const product = Product.getById(id);
 
   if (product.amount < 1) {
     return res.render('alert', {
@@ -371,7 +391,8 @@ router.post('/purchase-create', function (req, res) {
   })
   // ↑↑ сюди вводимо JSON дані
 })
-  router.post('/purchase-submit', function (req, res) {
+
+router.post('/purchase-submit', function (req, res) {
     const id = Number(req.query.id)
     let {
       totalPrice,

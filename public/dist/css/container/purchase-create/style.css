@@ -6,6 +6,10 @@ body {
   padding: 28px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .product {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -360,10 +364,11 @@ body {
 .shadow-button {
   text-align: center;
   border-radius: 8px;
-  background: rgb(0, 80, 255);
+  background: rgb(0, 47, 255);
   color: #fff;
   padding: 12px;
   text-decoration: none;
+  width: 100%;
 }
 
 .avenger {
@@ -462,11 +467,8 @@ body {
   margin-bottom: 12px;
 }
 
-a {
-  text-decoration: none;
-}
-
 .margin {
+  margin-top: 24px;
   display: grid;
   gap: 12px;
 }

@@ -1,11 +1,11 @@
-<form method="POST" action="/purchase-create?id={{id}}" class="main">
-    <div class="product">
+<form method="POST" action="/purchase-product?id={{id}}" class="main">
+    {{!-- <div class="product">
         <h6 class="message">{{data.message}}</h6>
         <div class="cool">
             <div class="hero-1">{{data.info}}</div>
             <a href="{{data.link}}" class="hero-button">Повернутись назад</a>
         </div>
-    </div>
+    </div> --}}
     <div class="product-2">
         <h2 class="title">Товари</h2>
         <p class="user">Комп'ютери та ноутбуки/Комп'ютери, неттопи, моноблоки</p>
@@ -21,7 +21,7 @@
                 <div class="content">
                    <label for="email" class="form-label">Кількість товару</label>
                    <input type="email" name="email" class="content-input">
-                   <a href="/purchase-index?id={{id}}" class="picture-button-3">Купити зараз: 113 109₴</a>
+                   <a href="/purchase-create?id={{id}}" class="picture-button-3">Купити зараз: 113 109₴</a>
                 </div>
             </div>
         </div>
@@ -37,9 +37,9 @@
                 <div class="picture-title">{{data.title}}</div>
                 <div class="picture-description">{{data.description}}</div>
                 <div class="buttons">
-                    <a href="/purchase-index?id={{id}}" class="picture-button">{{data.category}}</a>
-                    <a href="/purchase-index?id={{id}}" class="picture-button-2">Топ продажів</a>
-                    <a href="/purchase-index?id={{id}}" class="picture-button-3">Купити зараз: {{data.price}}</a>
+                    <a href="/purchase-create?id={{id}}" class="picture-button">{{data.category}}</a>
+                    <a href="/purchase-create?id={{id}}" class="picture-button-2">Топ продажів</a>
+                    <a href="/purchase-create?id={{id}}" class="picture-button-3">Купити зараз: {{data.price}}</a>
                 </div>
             </div>
         </div>
@@ -49,9 +49,9 @@
                 <div class="picture-title">Комп'ютер COBRA Advanced (I11F.8.H1S2.15T.13356) Intel</div>
                 <div class="picture-description">Intel Core i3-10100F (3.6 - 4.3 ГГц) / RAM 8 ГБ / HDD 1 ТБ + SSD 240 ГБ / GeForce GTX 1050 Ti, 4 ГБ / без ОД / LAN / Linux</div>
                 <div class="buttons">
-                    <a href="/purchase-index?id={{id}}" class="picture-button">Готовий до відправки</a>
-                    <a href="/purchase-index?id={{id}}" class="picture-button-2">Топ продажів</a>
-                    <a href="/purchase-index?id={{id}}" class="picture-button-3">Купити зараз: 17 000₴</a>
+                    <a href="/purchase-create?id={{id}}" class="picture-button">Готовий до відправки</a>
+                    <a href="/purchase-create?id={{id}}" class="picture-button-2">Топ продажів</a>
+                    <a href="/purchase-create?id={{id}}" class="picture-button-3">Купити зараз: 17 000₴</a>
                 </div>
             </div>
         </div>
@@ -61,9 +61,9 @@
                 <div class="picture-title">Комп'ютер ARTLINE Gaming by ASUS TUF v119 (TUFv119)</div>
                 <div class="picture-description-3">Intel Core i9-13900KF (3.0 - 5.8 ГГц) / RAM 64 ГБ / SSD 2 ТБ (2 x 1 ТБ) / nVidia GeForce RTX 4070 Ti, 12 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / без ОС</div>
                 <div class="buttons">
-                    <a href="/purchase-index?id={{id}}" class="picture-button">Готовий до відправки</a>
-                    <a href="/purchase-index?id={{id}}" class="picture-button-2">Топ продажів</a>
-                    <a href="/purchase-index?id={{id}}" class="picture-button-3">Купити зараз: 113 109₴</a>
+                    <a href="/purchase-create?id={{id}}" class="picture-button">Готовий до відправки</a>
+                    <a href="/purchase-create?id={{id}}" class="picture-button-2">Топ продажів</a>
+                    <a href="/purchase-create?id={{id}}" class="picture-button-3">Купити зараз: 113 109₴</a>
                 </div>
             </div>
         </div>
