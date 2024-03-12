@@ -12,46 +12,24 @@
             </div>
         </div>
         <h6 class="space">Оформлення замовлення</h6>
-      <form method="POST" action="/purchase-create">
-          <div class="alert-2">
-            <div class="alert-box">
-                <div class="alert-section">
-                  <label for="name" class="alert-label">Прізвище:</label>
-                  <input type="text" name="name" class="alert-input">
-                </div>
-                <div class="alert-section">
-                  <label for="name" class="alert-label">Ім'я:</label>
-                  <input type="text" name="name" class="alert-input">
-                </div>
+      {{#with data}}
+        <form method="POST" action="/purchase-submit?id={{id}}">
+            <div class="cart__block">
+              {{> field label='Прізвище' name='lastname'}}
+              {{> field label="Ім'я" name='firstname'}}
             </div>
-            <div class="alert-box">
-                <div class="alert-section">
-                  <label for="email" class="alert-label">Електронна пошта:</label>
-                  <input type="email" name="email" class="alert-input">
-                </div>
-                <div class="alert-section">
-                  <label for="phone" class="alert-label">Телефон:</label>
-                  <input type="text" name="phone" class="alert-input">
-                </div>
+            <div class="cart__block">
+              {{> field label='Мобільний телефон' name='phone'}}
+              {{> field label="Електронна пошта" name='email'}}
             </div>
-          </div>
-          <div class="alert-section-2">
-            <label for="comment" class="alert-label">Коментар</label>
-            <input type="text" name="comment" class="alert-input case">
-        </div>
-        <div class="comment">Коментар буде передано кур’єру</div>
-        <div class="alert-box">
-            <div class="alert-section">
-                <label for="" class="alert-label">Списати бонуси</label>
-                <input type="text"  class="alert-input">
+              {{> field label='Коментар' name='comment'}}
+            <small class='form__label--small'>Коментар буде передано кур’єру</small>
+            <div class="cart__block">
+              {{> field label='Списати бонуси' name='bonus'}}
+              {{> field label="Промо-код" name='promocode'}}
             </div>
-            <div class="alert-section">
-                <label for="id" class="alert-label">Промо-код</label>
-                <input type="text" id="id" class="alert-input">
-            </div>
-        </div>
-          <div class="price-2">Всього: 113109₴ (+1131,09₴ на бонусний рахунок)</div>
-              <button class="shadow-button">Оформити замовлення</button>
-        </div>
-      </form>
+            <strong class="accent-text">Всього: {{totalPrice}} грн (нараховано {{bonus}} грн бонусів)</strong>
+            <button class="shadow-button">Оформити замовлення</button>
+        </form>
+      {{/with}}
 </div>

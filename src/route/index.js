@@ -244,21 +244,6 @@ router.get('/purchase-create', function (req, res) {
   })
 })
 
-router.post('/purchase-create', function (req, res) {
-  const { name, price, description, email, phone} = req.body
-
-  const purchase = new Purchase(name, price, description, email, phone)
-
-  Purchase.add(purchase)
-
-  console.log(Purchase.getlist())
-
-  res.render('purchase-alert', {
-    style: 'purchase-alert',
-  })
-  //                  ↑↑ сюди вводимо JSON дані
-})
-
 router.get('/purchase-info', function (req, res) {
   res.render('purchase-info', {
     style: 'purchase-info',
