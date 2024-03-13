@@ -5,8 +5,7 @@
  
 <main class="main">
     {{> heading}}
-    <section class="">
-        <form method="POST" action="/purchase-product?id={{id}}">
+    <section class="section">
           <div class="product-cards">
            <div class="picture">
             {{#each data.products}}
@@ -19,7 +18,6 @@
             {{/each}}
            </div>
           </div>
-        </form>
     </section>
 </main>
 {{! 

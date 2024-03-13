@@ -29,6 +29,10 @@
               {{> field label="Промо-код" name='promocode'}}
             </div>
             <strong class="accent-text">Всього: {{totalPrice}} грн (нараховано {{bonus}} грн бонусів)</strong>
+            {{> field value=totalPrice name='totalPrice' disabled=true}}
+            {{> field value=productPrice name='productPrice' disabled=true}}
+            {{> field value=deliveryPrice name='deliveryPrice' disabled=true}}
+            {{> field value=amount name='amount' disabled=true}}
             <button class="shadow-button">Оформити замовлення</button>
         </form>
       {{/with}}

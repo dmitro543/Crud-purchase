@@ -236,19 +236,6 @@ Promocode.add('SALE25', 0.75)
 // router.get Створює нам один
 // ↙️ тут вводимо шлях (PATH) до сторінки
 
-router.get('/purchase-list', function (req, res) {
-  const list = Purchase.getlist()
-  console.log('purchase-list:', list)
-
-  res.render('purchase-list', {
-    style: 'purchase-list',
-    data: {
-      purchases: {
-        list,
-      },
-    },
-  })
-})
 
 router.get('/purchase-create', function (req, res) {
   res.render('purchase-create', {
@@ -377,7 +364,11 @@ router.post('/purchase-create', function (req, res) {
   res.render('purchase-create', {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'purchase-create',
+    component: [ 'divider', 'field', 'button', 'heading' ],
     data: {
+      title: 'Ваше замовлення',
+      subtitle: 'Оформлення замовлення',
+
       id: product.id,
       
       cart: [
@@ -392,21 +383,11 @@ router.post('/purchase-create', function (req, res) {
       ],
       totalPrice,
       productPrice,
-      deliveryPrice: Purchase.DELIVERY_PRICE,
       amount,
       bonus,
+      deliveryPrice: Purchase.DELIVERY_PRICE,
     }
   })
-
-  res.render('purchase-product', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
-    style: 'purchase-product',
-    data: {
-      list: Product.getRandomList(id),
-      product: Product.getById(id),
-    }
-  })
-  // ↑↑ сюди вводимо JSON дані
 })
 
 router.post('/purchase-submit', function (req, res) {
@@ -421,6 +402,9 @@ router.post('/purchase-submit', function (req, res) {
       lastname,
       email,
       phone,
+      comment,
+      delivery,
+
       promocode,
       bonus,
     } = req.body
@@ -430,6 +414,7 @@ router.post('/purchase-submit', function (req, res) {
   if (!product) {
     return res.render('alert', {
       style: 'alert',
+      component: ['button', 'heading'],
 
       data: {
         message: 'Помилка',
@@ -442,6 +427,7 @@ router.post('/purchase-submit', function (req, res) {
   if (product.amount < amount) {
     return res.render('alert', {
       style: 'alert',
+      component: ['button', 'heading'],
 
       data: {
         message: 'Помилка',
@@ -465,6 +451,7 @@ router.post('/purchase-submit', function (req, res) {
   ) {
     return res.render('alert', {
       style: 'alert',
+      component: ['button', 'heading'],
 
       data: {
         message: 'Помилка',
@@ -477,6 +464,7 @@ router.post('/purchase-submit', function (req, res) {
   if(!firstname || !lastname || !email ||!phone) {
     return res.render('alert', {
       style: 'alert',
+      component: ['button', 'heading'],
 
       data: {
         message: `Заповніть обов'язкові поля`,
@@ -523,7 +511,11 @@ router.post('/purchase-submit', function (req, res) {
       lastname,
       email,
       phone,
+
       promocode,
+      bonus,
+      comment,
+      delivery,
     },
     product,
   )
@@ -532,12 +524,27 @@ router.post('/purchase-submit', function (req, res) {
 
   res.render('alert', {
     style: 'alert',
+    component: ['button', 'heading'],
 
     data: {
       message: `Успішно`,
       info: 'Замовлення створено',
       link: '/purchase-list',
     }
+  })
+})
+
+router.get('/purchase-list', function (req, res) {
+  const list = Purchase.getlist()
+  console.log('purchase-list:', list)
+
+  res.render('purchase-list', {
+    style: 'purchase-list',
+    data: {
+      purchases: {
+        list,
+      },
+    },
   })
 })
 
