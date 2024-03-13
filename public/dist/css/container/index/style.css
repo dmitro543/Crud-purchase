@@ -3,7 +3,7 @@ body {
 }
 
 main {
-  padding: 24px;
+  padding: 40px;
 }
 
 .product {
@@ -148,6 +148,125 @@ main {
   text-decoration: none;
   border-radius: 8px;
   padding: 12px;
+}
+
+.divider {
+  margin-top: 20px;
+  border: 1px solid;
+  color: rgb(206, 212, 218);
+  margin-bottom: 30px;
+  width: 400px;
+}
+
+.picture {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.product-card {
+  width: 320px;
+  border: 1px solid rgb(206, 212, 218);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.block {
+  display: block;
+  gap: 5px;
+}
+
+.product-card-img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 16px;
+}
+
+.product-card-title {
+  font-size: 16px;
+  width: 250px;
+}
+
+.product-description {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  width: 290px;
+  color: rgb(33, 37, 41);
+}
+
+.product-card__category {
+  margin-top: 20px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.product-card__category:first-of-type {
+  background: #fff;
+  padding: 12px;
+  text-align: center;
+  border-radius: 25px;
+  color: rgb(0, 128, 0);
+  font-size: 16px;
+  border: 2px solid rgb(0, 128, 0);
+  width: 190px;
+  align-self: center;
+  height: 50px;
+}
+
+.product-card__category:first-of-type:hover {
+  background: rgb(0, 128, 0);
+  color: #fff;
+}
+
+.product-card__category:last-of-type {
+  background: #fff;
+  padding: 12px;
+  text-align: center;
+  border-radius: 25px;
+  color: rgb(0, 80, 255);
+  font-size: 16px;
+  border: 2px solid rgb(0, 80, 255);
+  width: 150px;
+  align-self: center;
+  height: 50px;
+  margin-bottom: 12px;
+}
+
+.product-card__category:last-of-type:hover {
+  color: #fff;
+  background: rgb(0, 80, 255);
+}
+
+.product-card-button {
+  background: rgb(0, 80, 255);
+  padding: 14px;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.heading {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.heading-title {
+  color: rgb(0, 80, 255);
+  font-size: 30px;
+}
+
+.heading-info {
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+}
+
+.product-cards {
+  display: grid;
+  gap: 450px;
 }
 
 /*# sourceMappingURL=style.css.map */

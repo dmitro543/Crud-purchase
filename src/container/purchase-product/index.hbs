@@ -1,71 +1,31 @@
-<form method="POST" action="/purchase-product?id={{id}}" class="main">
-    {{!-- <div class="product">
-        <h6 class="message">{{data.message}}</h6>
-        <div class="cool">
-            <div class="hero-1">{{data.info}}</div>
-            <a href="{{data.link}}" class="hero-button">Повернутись назад</a>
-        </div>
-    </div> --}}
-    <div class="product-2">
-        <h2 class="title">Товари</h2>
-        <p class="user">Комп'ютери та ноутбуки/Комп'ютери, неттопи, моноблоки</p>
+<main class="main">
+    {{#with data.product}}
+       <form method="POST" action="/purchase-create?id={{id}}">
+         <div class="post">
+            <div class="product-info-img">
+              <img src="{{img}}" alt="{{title}}" class="post-img">
+            </div>
+            <div class="product-info">
+              <h2 class="product-info-title">{{title}}</h2>
+              {{> divider}}
+              <p class="product-description">{{description}}</p>
+              {{> divider}}
+              {{> field label="Кількість товару" type="number" name="amount" value="1"}}
+              {{> button text="Купити зараз: 113 109₴" price=price}}
+            </div>
+         </div>
+       </form>
+    {{/with}}
+    <div class="heading-products">
+        {{> heading title="Інші товари" description="Комп'ютери та ноутбуки"}}
     </div>
-    <section class="section">
-        <div class="hero-2">
-            <img src="{{data.img}}" alt="" class="picture-2">
-            <div class="map-2">
-                <div class="picture-title-3">{{data.title}}</div>
-                <div class="divider"></div>
-                <div class="picture-description-2">{{data.description}}</div>
-                <div class="divider"></div>
-                <div class="content">
-                   <label for="email" class="form-label">Кількість товару</label>
-                   <input type="email" name="email" class="content-input">
-                   <a href="/purchase-create?id={{id}}" class="picture-button-3">Купити зараз: 113 109₴</a>
-                </div>
+    <section class="purchase-list">
+        <div class="product-cards">
+            <div class="picture">
+              {{#each data.list}}
+                  {{> purchase-product data=this}}
+              {{/each}}
             </div>
         </div>
     </section>
-    <div class="cool-title">
-        <div class="title-main">Інші товари</div>
-        <div class="cool-description">Комп'ютери та ноутбуки</div>
-    </div>
-    <section class="section-2">
-        <div class="hero">
-            <img src="{{data.img}}" alt="" class="picture">
-            <div class="map">
-                <div class="picture-title">{{data.title}}</div>
-                <div class="picture-description">{{data.description}}</div>
-                <div class="buttons">
-                    <a href="/purchase-create?id={{id}}" class="picture-button">{{data.category}}</a>
-                    <a href="/purchase-create?id={{id}}" class="picture-button-2">Топ продажів</a>
-                    <a href="/purchase-create?id={{id}}" class="picture-button-3">Купити зараз: {{data.price}}</a>
-                </div>
-            </div>
-        </div>
-        <div class="hero">
-            <img src="{{data.img}}" alt="" class="picture">
-            <div class="map">
-                <div class="picture-title">Комп'ютер COBRA Advanced (I11F.8.H1S2.15T.13356) Intel</div>
-                <div class="picture-description">Intel Core i3-10100F (3.6 - 4.3 ГГц) / RAM 8 ГБ / HDD 1 ТБ + SSD 240 ГБ / GeForce GTX 1050 Ti, 4 ГБ / без ОД / LAN / Linux</div>
-                <div class="buttons">
-                    <a href="/purchase-create?id={{id}}" class="picture-button">Готовий до відправки</a>
-                    <a href="/purchase-create?id={{id}}" class="picture-button-2">Топ продажів</a>
-                    <a href="/purchase-create?id={{id}}" class="picture-button-3">Купити зараз: 17 000₴</a>
-                </div>
-            </div>
-        </div>
-        <div class="hero">
-            <img src="{{data.img}}" alt="" class="picture">
-            <div class="map">
-                <div class="picture-title">Комп'ютер ARTLINE Gaming by ASUS TUF v119 (TUFv119)</div>
-                <div class="picture-description-3">Intel Core i9-13900KF (3.0 - 5.8 ГГц) / RAM 64 ГБ / SSD 2 ТБ (2 x 1 ТБ) / nVidia GeForce RTX 4070 Ti, 12 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / без ОС</div>
-                <div class="buttons">
-                    <a href="/purchase-create?id={{id}}" class="picture-button">Готовий до відправки</a>
-                    <a href="/purchase-create?id={{id}}" class="picture-button-2">Топ продажів</a>
-                    <a href="/purchase-create?id={{id}}" class="picture-button-3">Купити зараз: 113 109₴</a>
-                </div>
-            </div>
-        </div>
-    </section>
-</form>
+</main>
