@@ -292,17 +292,6 @@ router.get('/test-path', function (req, res) {
     })
   })
 
-router.get('/test-path', function (req, res) {
-res.render('alert', {
-    style: 'alert',
-    data: {
-      message: 'Успішно',
-      info: 'Замовлення створено',
-      link: `/test-path`
-    },
-  })
-})
-
 router.post('/purchase-create', function (req, res) {
 const id = Number(req.query.id)
 const amount = Number(req.query.amount)
@@ -523,8 +512,17 @@ res.render('purchase-list', {
       list,
     },
   },
+ })
 })
-})
+
+router.get('/purchase-info', function (req, res) {
+  
+  res.render('purchase-info', {
+    style: 'purchase-info',
+    data: {
+    },
+   })
+  })
 // ================================================================
 // Підключаємо роутер до бек-енду
 module.exports = router
