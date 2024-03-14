@@ -605,10 +605,11 @@ body {
 }
 
 .post-img {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   position: relative;
   top: 80px;
+  margin-right: 32px;
 }
 
 .post {

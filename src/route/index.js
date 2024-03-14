@@ -237,24 +237,24 @@ Promocode.add('SALE25', 0.75)
 // ↙️ тут вводимо шлях (PATH) до сторінки
 
 
-router.get('/purchase-create', function (req, res) {
-  res.render('purchase-create', {
-    style: 'purchase-create',
-    data: {
-       list: Product.getlist(),
-       link: '/purchase-list',
-    }
-  })
-})
+// router.get('/purchase-create', function (req, res) {
+//   res.render('purchase-create', {
+//     style: 'purchase-create',
+//     data: {
+//        list: Product.getlist(),
+//        link: '/purchase-list',
+//     }
+//   })
+// })
 
-router.post('/purchase-create', function (req, res) {
-  res.render('purchase-create', {
-    style: 'purchase-create',
-    data: {
-       list: Product.getlist(),
-    }
-  })
-})
+// router.post('/purchase-create', function (req, res) {
+//   res.render('purchase-create', {
+//     style: 'purchase-create',
+//     data: {
+//        list: Product.getlist(),
+//     }
+//   })
+// })
 
 router.get('/purchase-info', function (req, res) {
   res.render('purchase-info', {
@@ -283,11 +283,7 @@ router.get('/', function (req, res) {
 
 router.get('/purchase-product', function (req, res) {
   const id = Number(req.query.id)
-  // res.render генерує нам HTML сторінку
-
-  // ↙️ cюди вводимо назву файлу з сontainer
   res.render('purchase-product', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'purchase-product',
     data: {
       list: Product.getRandomList(id),
@@ -299,11 +295,7 @@ router.get('/purchase-product', function (req, res) {
 
 router.post('/purchase-product', function (req, res) {
   const id = Number(req.query.id)
-  // res.render генерує нам HTML сторінку
-
-  // ↙️ cюди вводимо назву файлу з сontainer
   res.render('purchase-product', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'purchase-product',
     data: {
       list: Product.getRandomList(id),
@@ -336,9 +328,11 @@ router.post('/purchase-create', function (req, res) {
   if (amount < 1) {
     return res.render('alert', {
       style: 'alert',
+      component: [ 'button', 'heading'],
+
       data: {
         message: 'Помилка',
-        info: 'Некоректна кылькість товару',
+        info: 'Некоректна кількість товару',
         link: `/purchase-product?id=${id}`,
       }
     })
@@ -348,6 +342,8 @@ router.post('/purchase-create', function (req, res) {
   if (product.amount < 1) {
     return res.render('alert', {
       style: 'alert',
+      component: [ 'button', 'heading'],
+
       data: {
         message: 'Помилка',
         info: 'Такої кількості товару немає в наявності',
@@ -461,7 +457,7 @@ router.post('/purchase-submit', function (req, res) {
     })
   }
 
-  if(!firstname || !lastname || !email ||!phone) {
+  if(!firstname, !lastname, !email, !phone) {
     return res.render('alert', {
       style: 'alert',
       component: ['button', 'heading'],

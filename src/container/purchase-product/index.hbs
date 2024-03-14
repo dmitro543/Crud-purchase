@@ -11,7 +11,7 @@
               <p class="product-description">{{description}}</p>
               {{> divider}}
               {{> field label="Кількість товару" type="number" name="amount" value="1"}}
-              {{> button text="Купити зараз: 113 109₴" price=price}}
+              {{> button text="Купити зараз" price=price}}
             </div>
          </div>
        </form>
@@ -23,6 +23,7 @@
         <div class="product-cards">
             <div class="picture">
               {{#each data.list}}
+                  {{> purchase-product data=this}}
                   {{> purchase-product data=this}}
               {{/each}}
             </div>
