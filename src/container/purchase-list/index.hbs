@@ -1,8 +1,8 @@
 <section class="avenger">
     <mark class="avenger-title">Мої замовлення</mark>
-    {{!-- {{#with data.purchases}}
-      {{#each list}} --}}
-        <a href="/purchase-info?id={{id}}">
+    {{#with data.purchases}}
+      {{#each list}}
+        <a href="/purchase-update?id={{id}}">
             <div class="tab">
                 <span class="avenger-name">{{id}}</span>
                 <div class="name">
@@ -19,6 +19,6 @@
                 </div>
             </div>
         </a>
-      {{!-- {{/each}}
-    {{/with}} --}}
+      {{/each}}
+    {{/with}}
 </section>

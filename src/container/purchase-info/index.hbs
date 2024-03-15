@@ -1,93 +1,22 @@
 <section class="section-2">
+    <form action="purchase-update?id={{id}}" method="POST">
       <div class="product-shadow-2">
         <h6 class="info">Зміна данних</h6>
         <div class="shadow-id alert-label">ID:</div>
         <div class="shadow-number right">54872</div>
+       {{#with data}}
         <div class="alert">
             <div class="alert-box">
-                <div class="alert-section">
-                  <label for="" class="alert-label">Прізвище:</label>
-                  <input type="text" class="alert-input">
-                </div>
-                <div class="alert-section">
-                  <label for="" class="alert-label">Ім'я:</label>
-                  <input type="text" class="alert-input">
-                </div>
+              {{> field label="Прізвище:" name='lastname' value=lastname}}
+              {{> field label="Ім'я:" name='firstname' value=firstname}}
             </div>
             <div class="alert-box">
-                <div class="alert-section">
-                  <label for="" class="alert-label">Електронна пошта:</label>
-                  <input type="text" class="alert-input">
-                </div>
-                <div class="alert-section">
-                  <label for="" class="alert-label">Телефон:</label>
-                  <input type="text" class="alert-input">
-                </div>
+              {{> field label="Електронна пошта:" name='email' value=email}}
+              {{> field label="Телефон:" name='phone' value=phone}}
             </div>
+            <button><div class="shadow-button">Зберегти зміни</div></button>
         </div>
-        <a href="/purchase-info?id={{id}}">
-           <div class="shadow-button">Зберегти зміни</div>
-        </a>
-      </div>
-</section>
-<div class="padding">
-      <section class="section-2 padding">
-      <div class="product-shadow">
-        <h6 class="info">Інформація про замовлення</h6>
-        <div class="shadow-id">ID:</div>
-        <div class="shadow-number">54872</div>
-        <div class="divider-2"></div>
-        <div class="box">
-            <div class="name">
-                <div class="shadow-name">Ім'я:</div>
-                <div class="shadow-name-2">Олександр</div>
-            </div>
-            <div class="name">
-                <div class="shadow-name">Прізвище:</div>
-                <div class="shadow-name-2">Семенов</div>
-            </div>
-            <div class="name">
-                <div class="shadow-name">Телефон:</div>
-                <div class="shadow-name-2">+380951234567</div>
-            </div>
-            <div class="name">
-                <div class="shadow-name">Електронна пошта:</div>
-                <div class="shadow-name-2">o.semenov@example.com</div>
-            </div>
-        </div>
-        <div class="divider-2"></div>
-        <div class="box-2">
-            <div class="name">
-              <div class="shadow-name">Назва товару:</div>
-              <div class="shadow-name-2">Комп'ютер Artline Gaming (X43v31) AMD Ryzen 5 3600</div>
-            </div>
-            <div class="name">
-               <div class="shadow-name">Коментар:</div>
-               <div class="shadow-name-2">Подзвонити за 30 хв</div>
-            </div>
-        </div>
-        <div class="divider-2"></div>
-        <div class="box">
-            <div class="name">
-                <div class="shadow-name">Вартість товарів:</div>
-                <div class="shadow-name-2">113 109₴</div>
-            </div>
-            <div class="name">
-                <div class="shadow-name">Вартість доставки:</div>
-                <div class="shadow-name-2">150₴</div>
-            </div>
-            <div class="name">
-                <div class="shadow-name">Сума до сплати:</div>
-                <div class="shadow-name-2">113 109₴</div>
-            </div>
-            <div class="name">
-                <div class="shadow-name">Нараховані бонуси:</div>
-                <div class="shadow-name-2">1131.09₴</div>
-            </div>
-        </div>
-        <div class="divider-2"></div>
-        <a href="/purchase-create?id={{id}}">
-            <div class="shadow-button">Змінити дані</div>
-        </a>
-      </div>
+       {{/with}}
+     </div>
+    </form>
 </section>

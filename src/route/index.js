@@ -516,12 +516,110 @@ res.render('purchase-list', {
 })
 
 router.get('/purchase-info', function (req, res) {
+  const id = Number(req.query.id)
+  const purchase = Purchase.getById(id)
   
   res.render('purchase-info', {
     style: 'purchase-info',
+    component: [ 'heading', 'divider', 'button'],
+    title: 'Інформація про замовлення',
+
     data: {
+       id: purchase.id,
+       firstname: purchase.firstname,
+       lastname: purchase.lastname,
+       phone: purchase.phone,
+       email: purchase.email,
+       delivery: purchase.delivery,
+       product: purchase.product,
+       productPrice: purchase.productPrice,
+       deliveryPrice: purchase.deliveryPrice,
+       totalPrice: purchase.totalPrice,
+       bonus: bonus,
     },
    })
+})
+
+router.get('/purchase-info', function (req, res) {
+
+  res.render('purchase-info', {
+    style: 'purchase-info',
+    data: {
+      
+    },
+   })
+  })
+
+  router.get('/purchase-update', function (req, res) {
+    const id = Number(req.query.id)
+    const purchase = Purchase.getById(id)
+
+     if(!purchase) {
+      res.render('alert-2', {
+        style: 'alert-2',
+        component: ['heading', 'button'],
+          title: 'Помилка',
+          info: 'Замовлення з таким ID не знайдено',
+       })
+     } else {
+      res.render('purchase-update', {
+        style: 'purchase-update',
+        component: ['heading','divider', 'field', 'button'],
+          title: 'Зміна данних замовлення',
+
+          data: {
+            id: purchase.id,
+            firstname: purchase.firstname,
+            lastname: purchase.lastname,
+            phone: purchase.phone,
+            email: purchase.email,
+            delivery: purchase.delivery,
+          },
+       })
+     }
+    })
+
+  router.post('/purchase-update', function (req, res) {
+    const id = Number(req.query.id)
+    let { firstname, lastname, phone, email, delivery } = req.body
+    
+    const purchase = Purchase.getById(id)
+
+    console.log(purchase)
+
+    if(purchase) {
+      const newPurchase = Purchase.updateById(id, {
+        firstname,
+        lastname,
+        phone,
+        email,
+        delivery,
+      })
+
+      console.log(newPurchase)
+
+      if(newPurchase) {
+        res.render('alert-2', {
+          style: 'alert-2',
+          component: ['button', 'heading'],
+          data: {
+            link: '/purchase-list',
+            title: 'Успішне виконання дій',
+            info: 'Товар успішно оновлено',
+          },
+        })
+      } else {
+        res.render('alert-2', {
+          style: 'alert-2',
+          component: ['button', 'heading'],
+          data: {
+            link: '/purchase-list',
+            title: 'Помилка ',
+            info: 'Не вдалося оновити товар',
+          },
+        })
+      }
+    }
   })
 // ================================================================
 // Підключаємо роутер до бек-енду

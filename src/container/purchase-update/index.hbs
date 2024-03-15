@@ -1,0 +1,28 @@
+<div class="padding">
+  <section class="product padding">
+    <form action="purchase-update?id={{data.id}}" method="POST">
+      {{> heading}}
+
+      {{#with data}}
+         <div class="id">ID:</div>
+         <div class="id">{{id}}</div>
+         {{> divider}}
+          <div class="box">
+            <div class="name">
+                {{> field label='Прізвище' name='lastname' value=lastname}}
+                {{> field label="Ім'я" name='firstname' value=firstname}}
+            </div>
+            <div class="name">
+                {{> field label='Мобільний телефон' name='phone' value=phone}}
+                {{> field label="Електронна пошта" name='email' value=email}}
+            </div>
+          </div>
+         {{> divider}}
+         
+         {{> field label='Адреса доставки' name='delivery' value=delivery}}
+         {{> button text="Змінити данні"}}
+       </div>
+      {{/with}}
+    </form>
+  </section>
+</div>

@@ -15,12 +15,12 @@
       {{#with data}}
         <form method="POST" action="/purchase-submit?id={{id}}">
             <div class="cart__block">
-              {{> field label='Прізвище' name='lastname'}}
-              {{> field label="Ім'я" name='firstname'}}
+              {{> field label='Прізвище' name='lastname' value=lastname}}
+              {{> field label="Ім'я" name='firstname' value=firstname}}
             </div>
             <div class="cart__block">
-              {{> field label='Мобільний телефон' name='phone'}}
-              {{> field label="Електронна пошта" name='email'}}
+              {{> field label='Мобільний телефон' name='phone' value=phone}}
+              {{> field label="Електронна пошта" name='email' value=email}}
             </div>
               {{> field label='Коментар' name='comment'}}
             <small class='form__label--small'>Коментар буде передано кур’єру</small>
